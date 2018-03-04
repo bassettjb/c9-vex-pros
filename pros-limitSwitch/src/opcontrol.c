@@ -43,7 +43,7 @@ void operatorControl() {
     	//printf("Limit Switch is HIGH\r\n");
     }
     ch1 = analogRead(1);
-    //printf("Analog 1 = %d\r\n",ch1);
+    printf("Analog 1 = %d\r\n",ch1);
     if (ch1 > 2000){
     	motorSet(1,40);
     } else {
