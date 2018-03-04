@@ -1,0 +1,29 @@
+To install PROS on a CLOUD9 Server:
+
+sudo apt-get update
+sudo apt-get install gcc-arm-none-eabi binutils-arm-none-eabi
+sudo apt-get install  libnewlib-arm-none-eabi
+sudo dpkg --install libstdc++-arm-none-eabi-newlib_4.9.3+svn227297-1+8_all.deb 
+sudo dpkg --install pros-core-2.6.1-amd64.deb
+pros conduct first-run
+
+Then, download a sample set of code.
+(see pros-demo or pros-hellow-world)
+
+Change to the directory, modify "opcontrol.c".
+	pros make clean
+	pros make
+	(It also is possible to bypass the pros command and simply make clean; make)
+
+This will generate a /bin/output.bin file that must be transfered to the Cortext.
+Download this file to a Windows machine.
+Use a Window machine to transfer it.
+	pros upload -f output.bin
+
+Then, may use putty to view printf statements on com port with speed 115200.
+	
+
+If it desired to upload the output file with Easy C, perform the following operation:
+	arm-none-eabi-objcopy ./bin/output.elf -O ihex ./bin/output.hex
+	
+Then, use the easyC's iLoader.exe file to upload the file. 
